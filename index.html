@@ -13,8 +13,10 @@
         <button onclick="getToken()">get local storage</button>
         <p id="localToken">add black color</p>
         <p>.....</p>
+        <p>part1:start go get pictures</p>
         <input type="file" accept="image/*" capture="camera" id="cameraInput">
         <img id="previewImage" src="#" alt="Preview" width="200" height="200">
+        <p>end part1</p>
       
 
 
@@ -89,19 +91,6 @@
             localToken.innerText = "string from localStorage ==>", localStorage.getItem(token.value);
         }
 
-    </script>
-    
-    <script>
-      document.getElementById('cameraInput').addEventListener('change', function(e) {
-        var file = e.target.files[0];
-        var reader = new FileReader();
-  
-        reader.onload = function(e) {
-          document.getElementById('previewImage').setAttribute('src', e.target.result);
-        };
-  
-        reader.readAsDataURL(file);
-      });
     </script>
 
 </html>

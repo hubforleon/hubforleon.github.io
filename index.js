@@ -49,3 +49,15 @@
 
             return sum;
         }
+
+        
+      document.getElementById('cameraInput').addEventListener('change', function(e) {
+        var file = e.target.files[0];
+        var reader = new FileReader();
+  
+        reader.onload = function(e) {
+          document.getElementById('previewImage').setAttribute('src', e.target.result);
+        };
+  
+        reader.readAsDataURL(file);
+      });
