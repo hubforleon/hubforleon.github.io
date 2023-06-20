@@ -1,36 +1,84 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title></title>
-<meta name="keywords" content=""/>
-<meta name="description" content=""/>
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<meta name="format-detection" content="telephone=no"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, viewport-fit=cover">
-<meta http-equiv="x-dns-prefetch-control" content="on"/>
-<link rel="stylesheet" type="text/css" href="fonts/iconfont.css"/>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="js/flexible.js"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <title> this is excercise </title>
+        <script src="index.js"></script>
+    </head>
 
-<div class="max denglu">
-  <div class="tab">
-  	<h1>安全巡检系统</h1>
-    <form name="" action="">
-      <ul>
-        <li><span>账 号：</span><input type="text" name="user" id="" value=""/></li>
-        <li><span>密 码：</span><input type="password" name="password" id="" value=""/></li>
-        <li class="three"><input type="submit" name="submit" id="submit" value="登 录"/></li>
-      </ul>
-    </form>
-  </div>
-</div>
+    <body>
+        <h1 class="list_item" style="text-align:center"> content description. </h1>
+        <input type="text" id="token" name="token">
+        <button onclick="getToken()">get local storage</button>
+        <p id="localToken">nothing</p>
+        <p>.....</p>
 
-</body>
+        <div>
+            <h3>control panel </h3>
+            <button onclick="changeColor()"> change color </button>
+            <button onclick="calcInput()">cal input</button>
+            <input onchange="calcInput()" id="abc" value="1,3,5,7">
+            <button onclick="calcMsg()"> cal message </button>
+        </div>
+
+        <div>
+            <h3>the result is:</h3>
+            <textarea id="display"> 0000 </textarea>
+        </div>
+
+        <div>
+            <h3> all items: </h3>
+            <li class="list_item" id="item1" onclick="changeColorById('item1')">item 1</li>
+            <li class=" list_item" id="item2">item 2</li>
+            <li class="list_item" id="item3">item 3</li>
+        </div>
+
+        <div>
+
+            <div>
+                <input id='inputApp' type='text' placeholder="app to be launched" value='new-app'>
+                <button id='btnStart' onclick='startApp()'> start application </button>
+            </div>
+            <br />
+            <div>
+                <p>
+                    <span>message to be send:</span>
+                    <input id='inputText' placeholder="message to be send">
+                </p>
+                <p>
+                    <span> message received: </span>
+                    <textarea id='receivedText' placeholder=" message received"></textarea>
+                </p>
+            </div>
+            <iframe id="callback"></iframe>
+            <button onclick='copy()'> copy </button>
+            <button onclick='openBBC()'> open BBC </button>
+
+        </div>
+    </body>
+    <script>
+        // window.addEventListener('change', () => { alert("about to change...") })
+        function copy() {
+            let ele1 = document.getElementById('inputText')
+            let ele2 = document.getElementById('receivedText')
+            ele2.value = ele1.value;
+            console.log("completed")
+        }
+        function openBBC() {
+            // console.log("outbput...", window.opener.location);
+            const iframe = document.getElementById("callback");
+            iframe.src = "http://127.0.0.1:5001";
+            iframe.width = "1100";
+            console.log(iframe.src);
+
+        }
+        function getToken() {
+            const token = document.getElementById("token");
+            const localToken = document.getElementById("localToken");
+            localToken.innerText = "string from localStorage ==>", localStorage.getItem(token.value);
+        }
+
+    </script>
+
 </html>

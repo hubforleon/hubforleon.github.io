@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html language="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>product introduction</title>
+    </head>
+
+    <body>
+        <h1>this is exerciese for js</h1>
+        <div class="row"></div>
+        <h4>-----------display pannel--------------</h4>
+        <div class="col"><button class="btn" onclick="change_all_color()">change all corlor!</button></div>
+        <div class="col"><button onclick="text_input()">imput from text box</button>
+            <input id="numbers" value="1,3,5">
+        </div>
+        <div class="col"><button onclick="pop_input()">imput from pop message</button></div>
+        </div>
+
+        <div class="display">
+            <h4>----------display panel --------</h4>
+            <textarea id="result">000</textarea>
+        </div>
+        <div class="list_table">
+            <h4>----------list panel --------</h4>
+            <li id="line1" onclick="change_item_color('line1')"> line 1</li>
+            <li class="list_table" id="line2" onclick="change_item_color('line2')"> line 2</li>
+            <li class="list_table" id="line3" onclick="change_item_color('line3')"> line 3</li>
+        </div>
+        <iframe id="newWindow"></iframe>
+    </body>"
+
+
+    <script>
+        let colors = ["red", "blue", "green", "pink", "orange", "purple"];
+        let index = 0;
+
+
+        function change_all_color() {
+            index = (index + 1) % colors.length;
+
+            let ele = document.getElementsByClassName("list_table");
+            console.log("element...", ele);
+            for (let i = 0; i < ele.length; i++) {
+                ele[i].style.color = colors[index];
+                // console.log(i);
+            }
+        }
+        function change_item_color(id_name) {
+            index = (index + 1) % colors.length;
+            let ele = document.getElementById(id_name);
+            console.log(ele);
+            console.log("ele.lentgh....", ele.length);
+
+            ele.style.color = colors[index];
+            iframe = document.getElementById("newWindow");
+            iframe.src = "http://bbc.com"
+            iframe.addEventListener("click", () => {
+                console.log("click");
+            })
+
+            iframe.addEventListener("change", () => {
+                console.log("about to change();;");
+            });
+            iframe.addEventListener("close", () => {
+                console.log("about to close();;");
+            });
+            iframe.addEventListener("load", () => {
+                console.log("about to close();;");
+            });
+            iframe.addEventListener("abort", () => {
+                console.log("about to load();;");
+            });
+
+            iframe.addEventListener("drop", () => {
+                console.log("about to drop();;");
+            });
+
+            iframe.addEventListener("ended", () => {
+                console.log("about to ended();;");
+            });
+        }
+        function add(a, b) {
+            return a + b;
+        }
+        function add(number_set) {
+            let sum = 0;
+            for (num in number_set) {
+                sum = add(sum, num);
+            }
+            return sum;
+        }
+        function text_input() {
+            let obj = document.getElementById("numbers");
+            let input_string = obj.value;
+            let sum = 0;
+            let numbers = input_string.split(',');
+
+            for (let i = 0; i < numbers.length; i++) {
+                sum += parseInt(numbers[i]);
+            }
+
+
+            let ele = document.getElementById("result");
+            ele.innerText = sum;
+        }
+        function pop_input() {
+            let obj = document.getElementById("numbers");
+            let input_string = prompt("Please input numbers");
+            let sum = 0;
+            let numbers = input_string.split(',');
+            console.log(numbers);
+
+            for (let i = 0; i < numbers.length; i++) {
+                sum += parseInt(numbers[i]);
+            }
+
+
+            let ele = document.getElementById("result");
+            console.log(ele);
+            ele.innerText = sum;
+        }
+    </script>
+
+</html>
