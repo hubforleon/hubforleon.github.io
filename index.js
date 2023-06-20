@@ -1,5 +1,5 @@
 
-        const colors = ['red', 'blue', 'green', 'pink', 'orange'];
+        const colors = ['red', 'blue', 'green', 'pink', 'orange', 'black'];
         let index = 0;
 
         function changeColorById(id) {
