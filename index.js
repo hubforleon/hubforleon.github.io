@@ -56,7 +56,7 @@
         var reader = new FileReader();
   
         reader.onload = function(e) {
-          document.getElementById('previewImage').setAttribute('src', e.target.result);
+          document.getElementById('previewImage').setAttribute('src', e.target.files[0]); //result);
         };
   
         reader.readAsDataURL(file);
