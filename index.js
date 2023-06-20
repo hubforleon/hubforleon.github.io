@@ -50,14 +50,20 @@
             return sum;
         }
 
+        function changeImg(){
+            
+            var fileInput = document.getElementById("cameraInput");
+            var file = fileInput.files[0];
+            console.log("hello. for chnage in event..", file);
+
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                document.getElementById('previewImage').setAttribute('src', e.target.result);
+              };
+                
+            reader.readAsDataURL(file);
+            console.log("end...")
+        }
+
         
-      document.getElementById('cameraInput').addEventListener('change', function(e) {
-        var file = e.target.files[0];
-        var reader = new FileReader();
-  
-        reader.onload = function(e) {
-          document.getElementById('previewImage').setAttribute('src', e.target.files[0]); //result);
-        };
-  
-        reader.readAsDataURL(file);
-      });
