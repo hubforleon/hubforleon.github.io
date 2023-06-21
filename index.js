@@ -115,4 +115,6 @@ function setToken() {
     localToken.innerText = "set to localStorage ==>"+ localStorage.getItem("token",token.value);
 }
 
-
+function showAndroidToast(toast) {
+    Android.showToast(toast);
+}
