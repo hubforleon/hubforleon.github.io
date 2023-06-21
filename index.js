@@ -118,3 +118,44 @@ function setToken() {
 function showAndroidToast(toast) {
     Android.showToast(toast);
 }
+
+
+function getLocation(){
+    if (navigator.geolocation) {
+        // Geolocation is supported
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        // Geolocation is not supported
+        // Handle the lack of support gracefully
+    }
+    }
+  
+  function showPosition(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+  
+    // Use the latitude and longitude values as needed
+    // ...
+  }
+  
+  function showError(error) {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        // User denied the permission request
+        // Handle the denial gracefully
+        break;
+      case error.POSITION_UNAVAILABLE:
+        // Location information is unavailable
+        // Handle the unavailability gracefully
+        break;
+      case error.TIMEOUT:
+        // The request to get location timed out
+        // Handle the timeout gracefully
+        break;
+      case error.UNKNOWN_ERROR:
+        // An unknown error occurred
+        // Handle the error gracefully
+        break;
+    }
+  }
+  
