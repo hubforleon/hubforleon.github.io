@@ -15,8 +15,8 @@
         <button onclick="setToken()">set local storage</button>        
         <p id="localToken">no token found</p>
 
-        <h1>Current Time: 
-        <p id="current-time"></p></h1>
+        <p>Current Time: 
+        <h1 id="current-time"></h1></p>
         <p>.....</p>
         <p>part1:start to get pictures</p>
         <input type="file" accept="image/*" capture="camera" id="cameraInput" onchange="changeImg()">
@@ -85,7 +85,7 @@
         function openBBC() {
             // console.log("outbput...", window.opener.location);
             const iframe = document.getElementById("callback");
-            iframe.src = "http://127.0.0.1:5001";
+            iframe.src = "http://hubforleon.github.io";
             iframe.width = "1100";
             console.log(iframe.src);
 

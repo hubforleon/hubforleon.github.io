@@ -79,12 +79,15 @@
             const localToken = document.getElementById("localToken");
             const value = localStorage.getItem("token");
             console.log("get from local: ", value);
-            localToken.innerText = "string from localStorage ==>"+localStorage.getItem("token");
+            const counter = localStorage.getItem("counter");
+            localToken.innerText = localStorage.getItem("token") + "==> from localStorage "+counter +" times";
         }
         function setToken() {
             const token = document.getElementById("token");
             const localToken = document.getElementById("localToken");
-            localStorage.setItem("token", token.value);            
+            localStorage.setItem("token", token.value);   
+            const counter = localStorage.getItem("counter")? parseInt(localStorage.getItem("counter")):0         
+            localStorage.setItem("counter", counter+1);            
             console.log("token.value = ", token.value)
-            localToken.innerText = "string set to localStorage ==>"+ localStorage.getItem("token",token.value);
+            localToken.innerText = "set to localStorage ==>"+ localStorage.getItem("token",token.value);
         }
