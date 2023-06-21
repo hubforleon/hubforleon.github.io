@@ -159,3 +159,6 @@ function getLocation(){
     }
   }
   
+  function inputTest(text){
+    Android.showToast(text);
+  }
