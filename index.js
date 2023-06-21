@@ -121,7 +121,8 @@ function showAndroidToast(toast) {
 
 
 function getLocation(){
-    alert("location request...");
+    // alert("location request...");
+    
     if (navigator.geolocation) {
         // Geolocation is supported
     // Android.showToast("location request from tost, yes");
