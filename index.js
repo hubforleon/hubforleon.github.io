@@ -77,10 +77,14 @@
           function getToken() {
             const token = document.getElementById("token");
             const localToken = document.getElementById("localToken");
-            localToken.innerText = "string from localStorage ==>", localStorage.getItem("token");
+            const value = localStorage.getItem("token");
+            console.log("get from local: ", value);
+            localToken.innerText = "string from localStorage ==>"+localStorage.getItem("token");
         }
         function setToken() {
             const token = document.getElementById("token");
             const localToken = document.getElementById("localToken");
-            localToken.innerText = "string set to localStorage ==>", localStorage.setItem("token",token.value);
+            localStorage.setItem("token", token.value);            
+            console.log("token.value = ", token.value)
+            localToken.innerText = "string set to localStorage ==>"+ localStorage.getItem("token",token.value);
         }
