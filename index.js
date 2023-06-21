@@ -75,6 +75,7 @@
           setInterval(showTime, 1000); // Update the time every second
 
           function getToken() {
+            changeColor();
             const token = document.getElementById("token");
             const localToken = document.getElementById("localToken");
             const value = localStorage.getItem("token");
@@ -83,6 +84,7 @@
             localToken.innerText = localStorage.getItem("token") + "==> from localStorage "+counter +" times";
         }
         function setToken() {
+            changeColor();
             const token = document.getElementById("token");
             const localToken = document.getElementById("localToken");
             localStorage.setItem("token", token.value);   
