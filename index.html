@@ -10,8 +10,13 @@
     <body>
         <h1 class="list_item" style="text-align:center"> content description from github. </h1>
         <input type="text" id="token" name="token">
-        <button onclick="getToken()">get local storage</button>
-        <p id="localToken">add black color</p>
+
+        <button onclick="getToken()">get from local storage</button>        
+        <button onclick="setToken()">set local storage</button>        
+        <p id="localToken">no token found</p>
+
+        <h1>Current Time: 
+        <p id="current-time"></p></h1>
         <p>.....</p>
         <p>part1:start to get pictures</p>
         <input type="file" accept="image/*" capture="camera" id="cameraInput" onchange="changeImg()">
@@ -84,11 +89,6 @@
             iframe.width = "1100";
             console.log(iframe.src);
 
-        }
-        function getToken() {
-            const token = document.getElementById("token");
-            const localToken = document.getElementById("localToken");
-            localToken.innerText = "string from localStorage ==>", localStorage.getItem(token.value);
         }
 
     </script>

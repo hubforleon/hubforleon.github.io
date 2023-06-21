@@ -66,4 +66,21 @@
             console.log("end...")
         }
 
-        
+        function showTime() {
+            var date = new Date();
+            var time = date.toLocaleTimeString();
+            document.getElementById("current-time").textContent = time;
+          }
+
+          setInterval(showTime, 1000); // Update the time every second
+
+          function getToken() {
+            const token = document.getElementById("token");
+            const localToken = document.getElementById("localToken");
+            localToken.innerText = "string from localStorage ==>", localStorage.getItem("token");
+        }
+        function setToken() {
+            const token = document.getElementById("token");
+            const localToken = document.getElementById("localToken");
+            localToken.innerText = "string set to localStorage ==>", localStorage.setItem("token",token.value);
+        }
