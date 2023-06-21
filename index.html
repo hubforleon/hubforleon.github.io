@@ -4,7 +4,6 @@
     <head>
         <meta charset="UTF-8" />
         <title> this is excercise </title>
-        <script src="index.js?v=1"></script>
     </head>
 
     <body>
@@ -19,7 +18,7 @@
         <h1 id="current-time"></h1></p>
         <p>.....</p>
         <p>part1:start to get pictures</p>
-        <input type="file" accept="image/*" capture="camera" id="cameraInput" onchange="changeImg()">
+        <input type="file" accept="image/*" capture="camera" id="cameraInput" /> 
         <img id="previewImage" src="#" alt="Preview" width="200" height="200">
         <p>end part1</p>
       
@@ -74,6 +73,8 @@
 
         </div>
     </body>
+    
+    <script src="index.js"></script>
     <script>
         // window.addEventListener('change', () => { alert("about to change...") })
         function copy() {
@@ -86,10 +87,11 @@
             // console.log("outbput...", window.opener.location);
             const iframe = document.getElementById("callback");
             iframe.src = "http://hubforleon.github.io";
-            iframe.width = "1100";
+            iframe.width = "500";
             console.log(iframe.src);
 
         }
+        
 
     </script>
 

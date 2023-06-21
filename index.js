@@ -2,6 +2,22 @@
         const colors = ['red', 'blue', 'green', 'pink', 'orange', 'black'];
         let index = 0;
 
+        const imageInput = document.getElementById("cameraInput");
+        imageInput.addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            console.log("event triggerred");
+            
+            var reader = new FileReader();
+            reader.onload = function(e) {
+              var imageData = e.target.result;
+              
+              // Send imageData to the server
+              // Implement your logic to upload the image data to the remote server
+                document.getElementById('previewImage').setAttribute('src', e.target.result);
+            };
+            reader.readAsDataURL(file);
+          });
+
         function changeColorById(id) {
             let ele = document.getElementById(id);
             index += 1;
@@ -51,6 +67,7 @@
         }
 
         function changeImg(){
+            changeColor();
             
             var fileInput = document.getElementById("cameraInput");
             var file = fileInput.files[0];
@@ -63,6 +80,10 @@
               };
                 
             reader.readAsDataURL(file);
+
+
+
+
             console.log("end...")
         }
 
@@ -74,7 +95,7 @@
 
           setInterval(showTime, 1000); // Update the time every second
 
-          function getToken() {
+        function getToken() {
             changeColor();
             const token = document.getElementById("token");
             const localToken = document.getElementById("localToken");
@@ -93,3 +114,5 @@
             console.log("token.value = ", token.value)
             localToken.innerText = "set to localStorage ==>"+ localStorage.getItem("token",token.value);
         }
+
+
