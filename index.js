@@ -176,8 +176,8 @@ function getLocation(){
     Android.showToast(text);
   }
 
-  function getFileList(){
-    Android.showToast(text);
+  function getFileListFromWV(){
+    Android.showToast("NULLL");
     // const text=document.getElementById('path');
     // const list = Android.getFileList(text.value);
     // showFileList(list);
