@@ -181,8 +181,8 @@ function getLocation(){
     const para = Android.showFile(text.value);
 
     const token=document.getElementById('localToken');
-    token.innerText = para;
-    document.getElementById('previewImage').setAttribute('src', Uri.parse(para));
+    token.innerText = para.toString();
+    document.getElementById('previewImage').setAttribute('src', para);
     
     
     // Android.showToast(para);
