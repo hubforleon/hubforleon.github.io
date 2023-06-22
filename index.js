@@ -179,8 +179,11 @@ function getLocation(){
   function getFileListFromWV(){
     const text=document.getElementById('path');
     const para = Android.showFile(text.value);
+
+    const token=document.getElementById('localToken');
+    token.innerText = para
     
-    Android.showToast(para);
+    // Android.showToast(para);
     // const list = Android.getFileList(text.value);
     // showFileList(list);
   }
