@@ -175,3 +175,19 @@ function getLocation(){
   function inputTest(text){
     Android.showToast(text);
   }
+
+  function getFileList(){
+    const text=document.getElementById('path');
+    const list = Android.getFileList(text.value);
+    showFileList(list);
+  }
+
+  function showFileList(list){
+    const length=(list&&list.length)? list.length:0;
+    const ele = document.getElementById("fileList");
+    for (let i=0;i<length;i++){
+      const li = document.createElement("li");
+      li.appendChild(document.createTextNode(list[i]));
+      ele.appendChild(li);
+    }
+  }

@@ -9,33 +9,37 @@
     <body>
         <h1 class="list_item" style="text-align:center"> best content description from github. </h1>
         <input type="text" id="token" name="token">
-
-        <button onclick="getToken()">get from local storage</button>        
-        <button onclick="setToken()">set local storage</button>        
         <p id="localToken">no token found</p>
 
-        <p>Current Time: 
-        <h1 id="current-time"></h1></p>
-        <p>.....</p>
-        <p>part1:start to get pictures</p>
+        <button onclick="getToken()">get from local storage</button><p></p>  
+        <button onclick="setToken()">set local storage</button> <p></p>
+         
+        <h3 id="current-time"></h3>
+        <p>.....part1:start to get pictures</p>
         <input type="file" accept="image/*" capture="camera" id="cameraInput" onclick="window.location.href='fileselected:' + this.value" />
 
         <!-- <input type="file" accept="image/*" capture="camera" id="cameraInput" onchange="inputTest('change trigger...')" oninput="inputTest('image input click')"/> <p></p> -->
         <img id="previewImage" src="#" alt="Preview" width="200" height="200"><p></p>
         <input type="file" id="fileInput" onchange="inputTest('general change trigger...')" onclick="inputTest('click for general input')"/> 
         <p>end part1</p>
-        <button onclick="getLocation()">get Location</button>
+        <button onclick="getLocation()">get Location</button><p></p>
       
 
 
-        <audio controls autoplay>
+        <!-- <audio controls autoplay>
           <source src="888.mp3" type="audio/mpeg" />
           <source src="michael.mp3" type="audio/mpeg" />
           your browser does not support audio element.
-      </audio>
-      <p></p>
+      </audio> -->
       <button onclick="showAndroidToast('hello from android toast')">Say Hello from android</button>
 
+      <h3><input type='text' id='path' value="picture">
+        <button onclick="getFileList()">get File List</button></h3>
+      <div>
+        <ul id="fileList"></ul>
+      </div>
+
+      <p></p>
         <div>
             <h3>control panel </h3>
             <button onclick="changeColor()"> change color </button>
