@@ -122,9 +122,11 @@ function showAndroidToast(toast) {
 
 function getLocation(){
     // alert("location request...");
-    // Android.showToast("location request from tost, yes");
     const localToken = document.getElementById("localToken");
-    localToken.innerText = "telepone number"+ Android.getPhoneNumber();
+    const info = Android.getPhoneNumber();
+    showAndroidToast("location request from tost=> "+info?info:"null")
+    
+    localToken.innerText = "telepone number"+ info?info:"null";
 
 
     
