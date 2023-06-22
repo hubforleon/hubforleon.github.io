@@ -177,9 +177,10 @@ function getLocation(){
   }
 
   function getFileList(){
-    const text=document.getElementById('path');
-    const list = Android.getFileList(text.value);
-    showFileList(list);
+    Android.showToast(text);
+    // const text=document.getElementById('path');
+    // const list = Android.getFileList(text.value);
+    // showFileList(list);
   }
 
   function showFileList(list){
