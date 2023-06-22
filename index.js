@@ -116,7 +116,10 @@ function setToken() {
 }
 
 function showAndroidToast(toast) {
-    Android.showToast(toast);
+  const info = Android.getPhoneNumber();
+  const information = info? info:"null";
+
+    Android.showToast(toast + information);
 }
 
 
