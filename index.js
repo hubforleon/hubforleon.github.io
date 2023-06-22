@@ -177,10 +177,10 @@ function getLocation(){
   }
 
   function getFileListFromWV(){
-    const text = Android.showFile("path");
+    const text=document.getElementById('path');
+    const para = Android.showFile(text.value);
     
-    Android.showToast(text);
-    // const text=document.getElementById('path');
+    Android.showToast(para);
     // const list = Android.getFileList(text.value);
     // showFileList(list);
   }
