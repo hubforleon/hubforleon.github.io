@@ -126,8 +126,8 @@ function showAndroidToast(toast) {
 function getLocation(){
     // alert("location request...");
     const localToken = document.getElementById("localToken");
-    const info = Android.makeCall();    
-    localToken.innerText = "telepone number"+ info?info:"null";
+    Android.makeCall();    
+    localToken.innerText = "make a call for general information";
 
 
     
