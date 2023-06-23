@@ -2,21 +2,6 @@
 const colors = ['red', 'blue', 'green', 'pink', 'orange', 'black'];
 let index = 0;
 
-const imageInput = document.getElementById("cameraInput");
-imageInput.addEventListener('change', function(event) {
-    var file = event.target.files[0];
-    console.log("event triggerred");
-    
-    var reader = new FileReader();
-    reader.onload = function(e) {
-        var imageData = e.target.result;
-        
-        // Send imageData to the server
-        // Implement your logic to upload the image data to the remote server
-        document.getElementById('previewImage').setAttribute('src', e.target.result);
-    };
-    reader.readAsDataURL(file);
-    });
 
 function changeColorById(id) {
     let ele = document.getElementById(id);
@@ -122,8 +107,25 @@ function showAndroidToast(toast) {
     Android.showToast(toast + information);
 }
 
-
 function getLocation(){
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+          function(position) {
+              // Success callback
+              alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+          },
+          function(error) {
+              // Error callback
+              alert("Geolocation error: " + error.message);
+          }
+      );
+  } else {
+      alert("Geolocation is not supported by this browser.");
+  }
+}
+
+
+function makecall(){
     // alert("location request...");
     const localToken = document.getElementById("localToken");
     Android.makeCall();    
@@ -176,26 +178,18 @@ function getLocation(){
     Android.showToast(text);
   }
 
-  function getFileListFromWV(){
-    const text=document.getElementById('path');
-    const para = Android.showFile(text.value);
+  function getCurrentLocation(){
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
 
-    const token=document.getElementById('localToken');
-    token.innerText = para.toString();
-    document.getElementById('previewImage').setAttribute('src', para);
-    
-    
-    // Android.showToast(para);
-    // const list = Android.getFileList(text.value);
-    // showFileList(list);
+  } else {
+    document.getElementById("localToken").innerHTML =
+    "Geolocation is not supported by this browser.";
   }
-
-  function showFileList(list){
-    const length=(list&&list.length)? list.length:0;
-    const ele = document.getElementById("fileList");
-    for (let i=0;i<length;i++){
-      const li = document.createElement("li");
-      li.appendChild(document.createTextNode(list[i]));
-      ele.appendChild(li);
-    }
+}
+  
+  function showPosition(position) {
+    document.getElementById("localToken").innerText =
+    "Latitude: " + position.coords.latitude +
+    "Longitude: " + position.coords.longitude;
   }

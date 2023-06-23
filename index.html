@@ -3,27 +3,50 @@
 
     <head>
         <meta charset="UTF-8" />
+        <title>ZOW Digital</title>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
         <title> this is excercise </title>
     </head>
 
     <body>
-        <h1 class="list_item" style="text-align:center"> best content description from github. </h1>
-        <input type="text" id="token" name="token">
+
+        <h2 class="list_item" style="text-align:center"> content description. </h2>
+        <button onclick="myFunction()">Prompt</button>
+        <button onclick="confirmTest()">confirm</button>
+        <button onclick="alertTest()">alert</button>
+        <button onclick="consoleTest()">console.log</button>
+
+<!--        这个从安卓本机读取文件的Uri再打开的功能，不能用起来。Uri不认识。-->
+<!--        <input type='text' id='path' value="picture">-->
+<!--            <button onclick="getFileListFromWV()">get File List from device</button>-->
+
         <h3 id="localToken">no token found</h3>
+        <div>
+            <ul id="fileList"></ul>
+        </div>
+        <button onclick="showAndroidToast('hello from android toast')">Say Hello from android</button>
+
+        <input type="text" id="token" name="token" value="first">
 
         <button onclick="getToken()">get from local storage</button><p></p>  
         <button onclick="setToken()">set local storage</button> <p></p>
          
+
+        <lable>相机：</lable>
+        <input type="file" accept="image/*" capture="camera" id="cameraInput"  /><p></p>
+        <lable>文件（有click触发）：</lable>
+        <input type="file" id="fileInput" onchange="inputTest('general change trigger...')" />
+<!--        inpu-->
+        <p></p>
+        <!-- <input type="file" accept="image/*" capture="camera" id="cameraInput" onchange="inputTest('change trigger...')" oninput="inputTest('image input click')"/> <p></p> -->
+        <img id="previewImage" src="#" alt="Preview" width="200" height="200"><p></p>        <p>end part1</p>
+
         <h3 id="current-time"></h3>
         <p>.....part1:start to get pictures</p>
-        <input type="file" accept="image/*" capture="camera" id="cameraInput"  />
-
-        <!-- <input type="file" accept="image/*" capture="camera" id="cameraInput" onchange="inputTest('change trigger...')" oninput="inputTest('image input click')"/> <p></p> -->
-        <img id="previewImage" src="#" alt="Preview" width="200" height="200"><p></p>
-        <input type="file" id="fileInput" onchange="inputTest('general change trigger...')" onclick="inputTest('click for general input')"/> 
-        <p>end part1</p>
-        <button onclick="getLocation()">get Location</button><p></p>
-      
+        <button onclick="makecall()">make a phone call</button>
+        <button onclick="getLocation()">get location</button><p></p>
+        <button onclick="getCurrentLocation()">get current location</button><p></p>
 
 
         <!-- <audio controls autoplay>
@@ -31,13 +54,8 @@
           <source src="michael.mp3" type="audio/mpeg" />
           your browser does not support audio element.
       </audio> -->
-      <button onclick="showAndroidToast('hello from android toast')">Say Hello from android</button>
 
-      <h3><input type='text' id='path' value="picture">
-        <button onclick="getFileListFromWV()">get File List</button></h3>
-      <div>
-        <ul id="fileList"></ul>
-      </div>
+
 
       <p></p>
         <div>
@@ -84,7 +102,8 @@
         </div>
     </body>
     
-    <script src="index.js?v=5"></script>
+    <script src="index.js?v=2"></script>
+    <script src="index_img.js?v=2"></script>
     <script>
         // window.addEventListener('change', () => { alert("about to change...") })
         function copy() {
